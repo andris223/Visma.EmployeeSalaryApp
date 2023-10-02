@@ -1,6 +1,11 @@
+using Visma.EmployeeSalaryApp.Interfaces;
+using Visma.EmployeeSalaryApp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 builder.Services.AddControllersWithViews();
 
@@ -13,7 +18,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 

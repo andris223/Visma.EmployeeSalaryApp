@@ -1,0 +1,34 @@
+<div class="message-container d-flex gap-4" [formGroup]="formGroup">
+  <div class="form-group">
+    <label for="employee-id-input">Employee Id</label>
+    <input class="form-control employee-id-input" type="number" [formControl]="formGroup.controls.employeeId" id="employee-id-input" min="1" />
+  </div>
+  <div>
+    <label for="year-input">Year</label>
+    <input class="form-control year-input" type="number" [formControl]="formGroup.controls.year" min="2000" max="2030" id="year-input"/>
+  </div>
+  <div>
+    <label for="month-input">Month</label>
+    <input class="form-control month-input" type="number" [formControl]="formGroup.controls.month" min="1" max="12" id="month-input"/>
+  </div>
+</div>
+
+<div>
+  <div class="mt-4">
+    <span class="fw-bold">Salary rate: {{employeeSalaryRate}} EUR/h</span>
+  </div>
+  <table class="table w-50">
+    <thead>
+      <tr>
+        <th>Shift Start</th>
+        <th>Shift End</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let shift of employeeShifts">
+        <td> {{shift.shiftStart | date: dateFormat}} </td>
+        <td> {{shift.shiftEnd| date: dateFormat}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
