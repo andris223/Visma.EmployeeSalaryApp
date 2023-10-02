@@ -8,7 +8,8 @@ Extend this simple web application allowing a manager to view shifts reported by
 * Open the solution in Visual Studio or Rider.
 * Enusure you have .NET 7 (or later) and npm 14.15 (or later) installed.
 * Run the application.
-* The Angular dev server will automatically host and open the main page.
+* The Angular dev server will be hosted automatically and the main page opened in the browser.
+* If you having any troubles running the application, please contact us.
 
 ### Existing Structure
 The backend currently features an EmployeeService which must be used to get employee shifts and salary rate. Please do **not** modify EmployeeService, as it returns mock data necessary for the task.
