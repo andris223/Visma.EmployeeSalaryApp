@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "Visma.EmployeeSalaryApp"
+  "defaultProject": "Visma.EmployeeSalaryApp",
+  "cli": {
+    "analytics": false
+  }
 }
