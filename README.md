@@ -5,7 +5,9 @@ Extend this simple web application allowing a manager to view shifts reported by
 
 ### Setup
 * Pull project from github.
-* Open the solution in Visual Studio or Rider to run the application.
+* Open the solution in Visual Studio or Rider.
+* Enusure you have .NET 7 (or later) and npm 14.15 (or later) installed.
+* Run the application.
 * The Angular dev server will automatically host and open the main page.
 
 ### Existing Structure
