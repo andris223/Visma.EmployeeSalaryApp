@@ -13,6 +13,8 @@ The backend currently features an EmployeeService which must be used to get empl
 
 The UI features a single page with 3 inputs: employee id, year, and month. The manager can view specific employee shifts for the selected month/year by altering the input values.
 
+![image](https://github.com/AkimsP-Visma/Visma.EmployeeSalaryApp/assets/74917569/4ecf5320-455f-41f6-806c-f80730c6118e)
+
 ### Task
 * 1\. Extend the application, by creating a **new** back-end service that uses data provided by IEmployeeService and:
 
