@@ -6,7 +6,7 @@ namespace Visma.EmployeeSalaryApp.Services;
 /// <summary>
 /// Dot not modify this class, used only to mock employee data
 /// </summary>
-public class EmployeeService : IEmployeeService
+public sealed class EmployeeService : IEmployeeService
 {
     /// <summary>
     /// Do not modify
