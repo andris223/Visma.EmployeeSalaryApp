@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma.EmployeeSalaryApp", "Visma.EmployeeSalaryApp\Visma.EmployeeSalaryApp.csproj", "{7E3C0CC4-199C-48B8-A5E5-8B221ED7FE9D}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visma.EmployeeSalaryApp", "Visma.EmployeeSalaryApp\Visma.EmployeeSalaryApp.csproj", "{7E3C0CC4-199C-48B8-A5E5-8B221ED7FE9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeEarningsServiceTests", "EmployeeEarningsServiceTests\EmployeeEarningsServiceTests.csproj", "{D9E31B49-037D-4F54-BBBC-0279DD632324}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,15 @@ Global
 		{7E3C0CC4-199C-48B8-A5E5-8B221ED7FE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E3C0CC4-199C-48B8-A5E5-8B221ED7FE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E3C0CC4-199C-48B8-A5E5-8B221ED7FE9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9E31B49-037D-4F54-BBBC-0279DD632324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9E31B49-037D-4F54-BBBC-0279DD632324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9E31B49-037D-4F54-BBBC-0279DD632324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9E31B49-037D-4F54-BBBC-0279DD632324}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51FC5EEE-E7B8-4E8B-9FE9-5C6F520D8665}
 	EndGlobalSection
 EndGlobal

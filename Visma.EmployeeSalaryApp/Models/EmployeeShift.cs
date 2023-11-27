@@ -4,4 +4,5 @@ public class EmployeeShift
 {
     public DateTime ShiftStart { get; init; }
     public DateTime ShiftEnd { get; init; }
+    public double EarnedAmount { get; set; }
 }

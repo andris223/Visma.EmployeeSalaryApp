@@ -20,51 +20,50 @@ export class SalaryOverviewComponent implements OnInit {
 
   public employeeShifts: EmployeeShift[] = [];
   public employeeSalaryRate: number = 0;
+  public employeeAmountEarnedInShift: number = 0;
+  public employeeAmountEarnedInMonth: number = 0;
   private subscriptions: Subscription = new Subscription();
 
   constructor(private employeeApiService: EmployeeApiService) { }
 
   public ngOnInit(): void {
-    this.refreshEmployeeShifts(this.formGroup.value).subscribe();
     this.refreshSalaryRate(this.formGroup.value?.employeeId ?? null).subscribe()
+    this.refreshAmountEarnedInShift(this.formGroup.value).subscribe();
+    this.refreshAmountEarnedInMonth(this.formGroup.value).subscribe();
     this.setupSubscriptions();
   }
 
   private setupSubscriptions(): void {
+
     this.subscriptions.add(
-      this.formGroup.valueChanges
+      this.formGroup.controls.employeeId.valueChanges
       .pipe(
-        switchMap(formValue => this.refreshEmployeeShifts(formValue))
+        switchMap(employeeId => this.refreshSalaryRate(employeeId)),
       )
       .subscribe()
     );
 
     this.subscriptions.add(
-      this.formGroup.controls.employeeId.valueChanges
-      .pipe(
-        switchMap(employeeId => this.refreshSalaryRate(employeeId))
-      )
-      .subscribe()
+      this.formGroup.valueChanges
+        .pipe(
+          switchMap(formValue => this.refreshAmountEarnedInShift(formValue))
+        )
+        .subscribe()
+    );
+
+    this.subscriptions.add(
+      this.formGroup.valueChanges
+        .pipe(
+          switchMap(formValue => this.refreshAmountEarnedInMonth(formValue))
+        )
+        .subscribe()
     );
   }
 
   public ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
-
-  private refreshEmployeeShifts(formValue : Partial<IFormData>): Observable<unknown> {
-    if(!formValue.employeeId || !formValue.year || !formValue.month) {
-      throw new Error('Invalid form value');
-    }
-  
-    return this.employeeApiService.GetEmployeeShifts(formValue.employeeId, formValue.year, formValue.month)
-    .pipe(
-      tap((shifts) => {
-        this.employeeShifts = shifts;
-      })
-    )
-  }
-
+ 
   private refreshSalaryRate(employeeId: number | null): Observable<unknown> {
     if(!employeeId) {
       throw new Error('Invalid employeeId value');
@@ -76,6 +75,33 @@ export class SalaryOverviewComponent implements OnInit {
         this.employeeSalaryRate = salaryRate;
       })
     );
+  }
+
+  private refreshAmountEarnedInShift(formValue : Partial<IFormData>): Observable<unknown> {
+    if(!formValue.employeeId || !formValue.year || !formValue.month) {
+      throw new Error('Invalid form value');
+    }
+
+    return this.employeeApiService.CalculateShiftAmountEarned(formValue.employeeId, formValue.year, formValue.month)
+    .pipe(
+      tap((shifts) => {
+        this.employeeShifts = shifts;
+        console.log(shifts);
+      })
+    )
+  }
+
+  private refreshAmountEarnedInMonth(formValue: Partial<IFormData>): Observable<unknown> {
+    if (!formValue.employeeId || !formValue.year || !formValue.month) {
+      throw new Error('Invalid form value');
+    }
+
+    return this.employeeApiService.CalculateMonthlyAmountEarned(formValue.employeeId, formValue.year, formValue.month)
+      .pipe(
+        tap((amount) => {
+          this.employeeAmountEarnedInMonth = Math.round(amount);
+        })
+      )
   }
 }
 

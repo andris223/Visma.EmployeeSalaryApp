@@ -17,17 +17,22 @@
   <div class="mt-4">
     <span class="fw-bold">Salary rate: {{employeeSalaryRate}} EUR/h</span>
   </div>
+  <div class="mt-2">
+    <span class="fw-bold">Amount earned this month: {{employeeAmountEarnedInMonth}} EUR</span>
+  </div>
   <table class="table w-50">
     <thead>
       <tr>
         <th>Shift Start</th>
         <th>Shift End</th>
+        <th>Amount Earned</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let shift of employeeShifts">
         <td> {{shift.shiftStart | date: dateFormat}} </td>
-        <td> {{shift.shiftEnd| date: dateFormat}} </td>
+        <td> {{shift.shiftEnd | date: dateFormat}} </td>
+        <td> {{shift.earnedAmount | number}} </td>
       </tr>
     </tbody>
   </table>

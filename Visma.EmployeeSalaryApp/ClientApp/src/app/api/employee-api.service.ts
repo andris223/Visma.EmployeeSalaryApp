@@ -19,4 +19,14 @@ export class EmployeeApiService {
   public GetEmployeeSalaryRate(employeeId: number): Observable<number> {
     return this.httpClient.get<number>(`/api/employees/${employeeId}/salary-rate`);
   }
+
+  public CalculateShiftAmountEarned(employeeId: number, year: number, month: number): Observable<EmployeeShift[]> {
+    return this.httpClient.get<EmployeeShift[]>(`/api/employees/${employeeId}/amount-earned-shift/${year}-${month}`);
+  }
+
+  public CalculateMonthlyAmountEarned(employeeId: number, year: number, month: number): Observable<number> {
+    return this.httpClient.get<number>(`/api/employees/${employeeId}/amount-earned-month/${year}-${month}`);
+  }
+
+
 }
